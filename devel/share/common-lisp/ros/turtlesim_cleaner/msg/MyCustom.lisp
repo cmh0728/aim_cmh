@@ -138,10 +138,10 @@
   "957a84dc144cfbccfcf214c35dd36d2d")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<MyCustom>)))
   "Returns full string definition for message of type '<MyCustom>"
-  (cl:format cl:nil "float64 x~%float64 y~%float64[] arr~%~%~%"))
+  (cl:format cl:nil "float64 x~%float64 y~%float64[] arr~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'MyCustom)))
   "Returns full string definition for message of type 'MyCustom"
-  (cl:format cl:nil "float64 x~%float64 y~%float64[] arr~%~%~%"))
+  (cl:format cl:nil "float64 x~%float64 y~%float64[] arr~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <MyCustom>))
   (cl:+ 0
      8

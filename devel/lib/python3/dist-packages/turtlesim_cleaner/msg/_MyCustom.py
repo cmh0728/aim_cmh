@@ -13,8 +13,7 @@ class MyCustom(genpy.Message):
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """float64 x
 float64 y
-float64[] arr
-"""
+float64[] arr"""
   __slots__ = ['x','y','arr']
   _slot_types = ['float64','float64','float64[]']
 

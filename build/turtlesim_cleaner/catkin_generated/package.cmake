@@ -1,6 +1,6 @@
 set(_CATKIN_CURRENT_PACKAGE "turtlesim_cleaner")
 set(turtlesim_cleaner_VERSION "0.0.0")
-set(turtlesim_cleaner_MAINTAINER "minhyeok <minhyeok@todo.todo>")
+set(turtlesim_cleaner_MAINTAINER "minhyeok <gambaro344@gmail.com>")
 set(turtlesim_cleaner_PACKAGE_FORMAT "2")
 set(turtlesim_cleaner_BUILD_DEPENDS "geometry_msgs" "roscpp" "std_msgs" "turtlesim" "message_generation")
 set(turtlesim_cleaner_BUILD_EXPORT_DEPENDS "geometry_msgs" "roscpp" "std_msgs" "turtlesim")
