@@ -1,2 +1,0 @@
-turtlesim_cleaner
--DCATKIN_DEVEL_PREFIX=/home/minhyeok/aim_ws/devel -DCMAKE_INSTALL_PREFIX=/home/minhyeok/aim_ws/install -G Unix Makefiles
