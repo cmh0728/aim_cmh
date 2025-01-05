@@ -248,3 +248,9 @@ target_link_libraries(custom_publisher ${catkin_LIBRARIES})
 add_executable(custom_subscriber src/custom_sub.cpp)
 add_dependencies(custom_subscriber ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(custom_subscriber ${catkin_LIBRARIES})
+
+
+#pub+sub관련
+add_executable(sub_with_pub_node src/sub_with_pub.cpp)
+add_dependencies(sub_with_pub_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(sub_with_pub_node ${catkin_LIBRARIES})
