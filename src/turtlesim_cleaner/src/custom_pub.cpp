@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
     {
 
         msg.x = count ;
-        if(count<50) // 50 이상일 경우에 object detect 했다고 가정.(라이다)
+        if(count<100) // 50 이상일 경우에 object detect 했다고 가정.(라이다)
         {
             ROS_INFO("Publishing: x=%f, y=%f, arr[0]=%f", msg.x, msg.y, msg.arr[0]);
             pub.publish(msg);
