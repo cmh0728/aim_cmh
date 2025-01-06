@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
     // Subscriber 설정 내가 만든 custom topic 받아옴
     ros::Subscriber sub = nh.subscribe("custom_topic", 10, callback);
 
-    ros::Rate loop_rate(1);
+    ros::Rate loop_rate(5);
 
     while (ros::ok()) {
 
@@ -30,7 +30,6 @@ int main(int argc, char** argv) {
             control_msg.data = true;  // 예: 장애물 발견 시 true
             ROS_INFO("object detect!!!! stop!!!!!!!!1");
             pub.publish(control_msg); //마지막으로 쏴주고 종료되게. 이게 없어서 업데이트가 안되고 종료됨
-            break;
         }
         else 
         {
