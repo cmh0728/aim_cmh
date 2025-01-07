@@ -24,6 +24,8 @@
   <exec_depend>roscpp</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>turtlesim</exec_depend>
+
+  <!-- 커스텀 메세지 생성 부분  -->
   <build_depend>message_generation</build_depend>
   <exec_depend>message_runtime</exec_depend>
   <build_depend>python3</build_depend>

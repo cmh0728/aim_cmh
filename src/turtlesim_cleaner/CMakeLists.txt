@@ -17,6 +17,7 @@ find_package(Python3 REQUIRED COMPONENTS Development)
 add_message_files(
   FILES
   MyCustom.msg
+  LineAndNear.msg
  )
 
 ## C++11 지원 설정
@@ -30,6 +31,7 @@ generate_messages(
 )
 
 
+#의존성 추가 
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES turtlesim_cleaner
@@ -109,3 +111,12 @@ add_executable(Find_Line_Near src/Find_Line_Near.cpp)
 target_link_libraries(Find_Line_Near
   ${catkin_LIBRARIES}
 )
+
+
+# matplotlib-cpp 포함
+include_directories(${CMAKE_SOURCE_DIR} ../matplotlib-cpp)
+
+# Python 라이브러리 추가
+find_package(Python3 COMPONENTS Interpreter NumPy REQUIRED)
+include_directories(${Python3_INCLUDE_DIRS})
+link_libraries(${Python3_LIBRARIES})

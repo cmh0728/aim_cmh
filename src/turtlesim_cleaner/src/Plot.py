@@ -1,10 +1,8 @@
-# - Plot : Python에서 matplotlib를 이용해서 Point, Line, Nearest Point 실시간 그래프화 
-
 #!/usr/bin/env python3
 
 import rospy
 from std_msgs.msg import Float32MultiArray
-from geometry_msgs.msg import Point
+from turtlesim_cleaner.msg import LineAndNear
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import numpy as np
@@ -20,15 +18,12 @@ def points_callback(msg):
     # 데이터를 (x, y) 쌍으로 변환
     points = [(msg.data[i], msg.data[i + 1]) for i in range(0, len(msg.data), 2)]
 
-def line_callback(msg):
-    global line_info
+def line_and_near_callback(msg):
+    global line_info, nearest_point
     # 직선 방정식의 기울기(a)와 절편(b) 저장
-    line_info = (msg.data[0], msg.data[1])  # a, b
-
-def nearest_callback(msg):
-    global nearest_point
+    line_info = (msg.a, msg.b)
     # 가장 가까운 점 저장
-    nearest_point = (msg.x, msg.y)
+    nearest_point = (msg.nearest_point.x, msg.nearest_point.y)
 
 # 플롯 업데이트 함수
 def update_plot(frame):
@@ -43,7 +38,7 @@ def update_plot(frame):
         plt.scatter(x_vals, y_vals, label="Points", color="blue")
 
     # 직선 플롯
-    if line_info:
+    if line_info and points:
         a, b = line_info
         x_line = np.linspace(min(x_vals) - 10, max(x_vals) + 10, 100)
         y_line = a * x_line + b
@@ -62,12 +57,11 @@ def update_plot(frame):
 
 # ROS 노드 초기화 및 메시지 구독
 def main():
-    rospy.init_node("Plot", anonymous=True)
+    rospy.init_node("Plot", anonymous=False)
 
     # 구독 설정
     rospy.Subscriber("Points", Float32MultiArray, points_callback)
-    rospy.Subscriber("line_info", Float32MultiArray, line_callback)
-    rospy.Subscriber("near", Point, nearest_callback)
+    rospy.Subscriber("line_info_and_near", LineAndNear, line_and_near_callback)
 
     # 실시간 플롯 설정
     fig = plt.figure()
