@@ -95,3 +95,17 @@ target_link_libraries(matplot_example
   ${catkin_LIBRARIES}
   ${Python3_LIBRARIES}  # Python 라이브러리 경로
 )
+
+#select point node
+
+add_executable(Select_Point src/Select_Point.cpp)
+target_link_libraries(Select_Point
+  ${catkin_LIBRARIES}
+)
+
+#Find Line & Near
+
+add_executable(Find_Line_Near src/Find_Line_Near.cpp)
+target_link_libraries(Find_Line_Near
+  ${catkin_LIBRARIES}
+)
