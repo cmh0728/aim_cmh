@@ -61,7 +61,7 @@ def main():
 
     # 구독 설정
     rospy.Subscriber("Points", Float32MultiArray, points_callback)
-    rospy.Subscriber("line_info_and_near", LineAndNear, line_and_near_callback)
+    rospy.Subscriber("LineInfo_And_Near", LineAndNear, line_and_near_callback)
 
     # 실시간 플롯 설정
     fig = plt.figure()
