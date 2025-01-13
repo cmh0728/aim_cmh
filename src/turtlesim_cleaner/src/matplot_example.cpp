@@ -1,21 +1,26 @@
-#include "matplotlibcpp.h"  // matplotlib-cpp 헤더 포함
-#include <vector>
+#include <cmath>
+#include "matplotlibcpp.h"
 
+using namespace std;
 namespace plt = matplotlibcpp;
 
-int main() {
-    // x, y 데이터 생성
-    std::vector<double> x = {1, 2, 3, 4, 5};
-    std::vector<double> y = {1, 4, 9, 16, 25};
+int main()
+{
+    // Prepare data.
+    int n = 5000; // number of data points
+    vector<double> x(n),y(n);
+    for(int i=0; i<n; ++i) {
+        double t = 2*M_PI*i/n;
+        x.at(i) = 16*sin(t)*sin(t)*sin(t);
+        y.at(i) = 13*cos(t) - 5*cos(2*t) - 2*cos(3*t) - cos(4*t);
+    }
 
-    // 그래프 그리기
-    plt::plot(x, y);
-    plt::title("Plot example");
-    plt::xlabel("X-axis");
-    plt::ylabel("Y-axis");
+    // plot() takes an arbitrary number of (x,y,format)-triples.
+    // x must be iterable (that is, anything providing begin(x) and end(x)),
+    // y must either be callable (providing operator() const) or iterable.
+    plt::plot(x, y, "r-", x, [](double d) { return 12.5+abs(sin(d)); }, "k-");
 
-    // 그래프 표시
+
+    // show plots
     plt::show();
-
-    return 0;
 }
