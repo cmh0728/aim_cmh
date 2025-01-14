@@ -1,32 +1,37 @@
-#include <iostream> 
+#include <iostream>
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
 int main()
 {
-    cin.tie(NULL);
-    ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	ios_base::sync_with_stdio(false);
 
-	int n, m ;
-	cin >> n >> m ;
+	vector<int> v1(30);
 
-    vector<int> v1(n); // 크기 n으로 초기화 
-
-	for (int x = 0 ; x < m ; x++)
+	//기본값 할당
+	for(int i = 1 ; i <= 30 ; i++)
 	{
-		int i , j , k ;
-		cin >> i >> j >> k ;
-		
-		for (int num = i ; num <= j ; num ++)
+		v1[i-1] = 0 ;
+	}
+
+	for(int i =1 ; i<=28 ; i ++)
+	{
+		int num ;
+		cin >> num ;
+		v1[num-1] = 1;
+	}
+
+	//출력
+	for (int i =1 ;i<=30;i++)
+	{
+		if (v1[i-1] == 0 )
 		{
-			// cout << num << "\n" ;
-			v1[num-1] = k ;
+			cout << i << "\n" ;
 		}
 	}
-	
-	for (int v : v1)
-	{
-		cout << v << " " ;
-	}
-    return 0;
+
+	return 0;
 }
