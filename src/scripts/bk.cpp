@@ -1,7 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <string>
+# include <iostream>
+# include <algorithm>
+# include <vector>
 
 using namespace std;
 
@@ -10,21 +9,23 @@ int main()
 	cin.tie(NULL);
 	ios_base::sync_with_stdio(false);
 
-	int n , m ;
+	int n , k ;
+	cin >> n >> k ;
 
-	cin >> n >> m ; //2차원 배열의 크기 
-
-	int num_arr1[n][m];
-
-
-	for ( int i = 0 ; i < n ; i++)
+	vector<int> v1(n);
+	for (int i  = 0 ;  i < n ; i ++)
 	{
-		cin >> 
+		cin >> v1[i];
 	}
 
-	for ( int i = 0 ; i < n ; i++)
-	{
-		
-	}	
+	sort(v1.begin(),v1.end(),greater<int>());
+
+	//디버깅용
+	// for (int i = 0 ; i < n ; i ++)
+	// {
+	// 	cout << v1[i]<< " ";
+	// }
+
+	cout << v1[k-1];
 	return 0;
 }
