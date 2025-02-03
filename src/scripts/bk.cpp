@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -9,29 +10,21 @@ int main()
 	cin.tie(NULL);
 	ios_base::sync_with_stdio(false);
 
-	vector<int> v1(30);
+	int n , m ;
 
-	//기본값 할당
-	for(int i = 1 ; i <= 30 ; i++)
+	cin >> n >> m ; //2차원 배열의 크기 
+
+	int num_arr1[n][m];
+
+
+	for ( int i = 0 ; i < n ; i++)
 	{
-		v1[i-1] = 0 ;
+		cin >> 
 	}
 
-	for(int i =1 ; i<=28 ; i ++)
+	for ( int i = 0 ; i < n ; i++)
 	{
-		int num ;
-		cin >> num ;
-		v1[num-1] = 1;
-	}
-
-	//출력
-	for (int i =1 ;i<=30;i++)
-	{
-		if (v1[i-1] == 0 )
-		{
-			cout << i << "\n" ;
-		}
-	}
-
+		
+	}	
 	return 0;
 }
