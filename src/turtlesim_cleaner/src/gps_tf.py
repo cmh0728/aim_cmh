@@ -58,8 +58,9 @@ def wgs84_to_utm(lat, lon, zone_number=52): #서울 기준(52n)
 
 if __name__ == "__main__":
     # ex
-    lat, lon, alt = map(float,input("WGS84 위도, 경도, 고도를 입력하세요 :").split()) #현재위치 비룡플라자(37.449248 126.656665 0.0)
-    ref_lat, ref_lon, ref_alt = 37.450781, 126.653976, 0.0 #60주년 기념관 
+    lat, lon, alt = map(float,input("WGS84 위도, 경도, 고도를 입력하세요 :").split()) #현재위치 비룡플라자(37.449248 126.656665 0.0) 37.23923625810047 126.77315944371854 0.0 
+    # 37.23905007632922 126.77530160074377 0.0
+    ref_lat, ref_lon, ref_alt = 37.238838359501933 ,   126.772902206454901  ,  0.000000000000000    # ref
 
     # WGS84 -> ECEF
     x, y, z = wgs84_to_ecef(lat, lon, alt)
