@@ -1,6 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+# include <iostream>
+# include <algorithm>
+# include <vector>
 
 using namespace std;
 
@@ -9,29 +9,23 @@ int main()
 	cin.tie(NULL);
 	ios_base::sync_with_stdio(false);
 
-	vector<int> v1(30);
+	int n , k ;
+	cin >> n >> k ;
 
-	//기본값 할당
-	for(int i = 1 ; i <= 30 ; i++)
+	vector<int> v1(n);
+	for (int i  = 0 ;  i < n ; i ++)
 	{
-		v1[i-1] = 0 ;
+		cin >> v1[i];
 	}
 
-	for(int i =1 ; i<=28 ; i ++)
-	{
-		int num ;
-		cin >> num ;
-		v1[num-1] = 1;
-	}
+	sort(v1.begin(),v1.end(),greater<int>());
 
-	//출력
-	for (int i =1 ;i<=30;i++)
-	{
-		if (v1[i-1] == 0 )
-		{
-			cout << i << "\n" ;
-		}
-	}
+	//디버깅용
+	// for (int i = 0 ; i < n ; i ++)
+	// {
+	// 	cout << v1[i]<< " ";
+	// }
 
+	cout << v1[k-1];
 	return 0;
 }
